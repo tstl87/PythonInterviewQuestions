@@ -1,0 +1,9 @@
+Given a string, return the first character that is repeated. Otherwise return False.
+
+Example 1:
+input 'qwertty'
+outpyt 't'
+
+Example 2:
+input: 'qwerty'
+output: False

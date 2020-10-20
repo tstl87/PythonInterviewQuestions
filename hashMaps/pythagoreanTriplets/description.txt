@@ -1,0 +1,8 @@
+Given a list of integers, determine if there exists a pythagorean triplet (a^2 + b^2 = c^2).
+
+Example
+input = [3,5,12,13]
+output = True (5^2 + 12^2 = 13^2)
+
+input = [1, 2, 3, 4]
+output = False

@@ -40,8 +40,8 @@ class Solution:
             if l1.next or l2.next:
                 if not l1.next:
                     l1.next = Node(0)
-                    if not l2.next:
-                        l2.next = Node(0)
+                if not l2.next:
+                    l2.next = Node(0)
             elif c:
                 current.next = Node(c)
             l1 = l1.next

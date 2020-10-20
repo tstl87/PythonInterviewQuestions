@@ -1,0 +1,5 @@
+Given a list of integers representing user performances (Higher is better). Return a list containing bonuses (minimum of 1) for each individual. The bonus each person receives should be larger than the bonuses received by either neighbor if their performance is higher. 
+
+Example
+Input = [1,2,3,4,3,1]
+Output = [1,2,3,4,2,1]

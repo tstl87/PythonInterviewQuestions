@@ -1,0 +1,5 @@
+Given a list, return the top k element that appear the most frequently.
+
+Example:
+Input = [1, 1, 1, 2, 2, 3, ], 2
+Output = [1,2]

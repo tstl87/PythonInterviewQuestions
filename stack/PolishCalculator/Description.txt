@@ -1,0 +1,10 @@
+Given a list of integers and operands return the integer assuming that the values are computed in Reverse Polish Notation
+
+# Example
+input = [3, 4, −, 5, +] # which is really 3 - 4 + 5
+ouput = 4
+
+# Example
+input = [1, 2, 3, +, 2, *, -] 1 - (2 + 3)*2
+ouput = -9
+

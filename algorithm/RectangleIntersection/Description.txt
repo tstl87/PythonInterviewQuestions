@@ -1,0 +1,1 @@
+Given two rectangles, find the area of their intersecting rectangle.

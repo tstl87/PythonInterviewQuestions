@@ -1,0 +1,1 @@
+Given a linked list, remove any contiguous nodes which sum to zero.

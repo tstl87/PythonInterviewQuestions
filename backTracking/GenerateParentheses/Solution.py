@@ -1,16 +1,19 @@
-class Solution:
-    def generateParetheses(self, n):
-        res = []
-        
-        def backtrack(S, nleft, nright ):
-            if len(S) == 2*n:
-                res.append(S)
-                return
-            if nleft < n:
-                backtrack(S+'(', nleft+1, nright)
-            if nleft > nright:
-                backtrack(S+')', nleft, nright+1)
-        backtrack('',0,0)
-        return res
-    
-print(Solution().generateParetheses(3))
+class Solution(object):
+	def _genParensHelper(self, n, left, right, str):
+		if left + right == 2 * n:
+			return [str]
+
+		result = []
+		if left < n:
+			result += self._genParensHelper(n, left + 1, right, str+'(')
+
+		if right < left:
+			result += self._genParensHelper(n, left, right + 1, str+')')
+		return result
+
+	def genParens(self, n):
+		return self._genParensHelper(n, 0, 0, '')
+
+
+print(Solution().genParens(2))
+# ['((()))', '(()())', '(())()', '()(())', '()()()']

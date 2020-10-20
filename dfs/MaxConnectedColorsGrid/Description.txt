@@ -1,0 +1,10 @@
+Given a two dimensional array of integers. Find the maximum number of connected grid points, connected horizontally or vertically.
+
+Example
+Input
+#grid = [[1, 0, 0, 1],
+#        [1, 1, 1, 1],
+#        [0, 1, 0, 0]]
+
+Output:
+7

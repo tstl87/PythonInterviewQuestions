@@ -1,0 +1,7 @@
+Given a list of positive integers, where each integer represents the maximum number of jumps forward you can take from your current position. Find the minimum number of jumps needed to get to the end of the list.
+
+Example:
+Input:[3, 2, 5, 1, 1, 9, 3, 4]
+output: 2
+
+from 3 jump to 5 and then jump to the end.

@@ -1,0 +1,16 @@
+Given a tree and a value, remove all branches and leaves of the tree with the given value.
+Except for the root
+
+# Example
+    1
+   / \
+  2   1
+ /   /
+2   1
+
+Output
+    1
+   /
+  2
+ / 
+2 

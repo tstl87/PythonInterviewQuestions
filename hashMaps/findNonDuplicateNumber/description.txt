@@ -1,0 +1,5 @@
+Given a list of integers. Find the first integer that is not repeating.
+
+Example:
+input = [4, 3, 2, 4, 1, 3, 2]
+output = 1

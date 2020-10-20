@@ -1,0 +1,11 @@
+Given an array of integers representing a maze where paths = 0 and walls = 1. Find
+the number of paths you can take from the upper left most point to the lower right most point.
+In this problem you can only move right or down. You can't move up or left.
+
+# Example:
+input
+m = [[0, 1, 0],
+     [0, 0, 1],
+     [0, 0, 0]]
+
+output = 2

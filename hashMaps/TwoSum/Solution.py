@@ -1,13 +1,21 @@
-class Solution:
-    def twoSum(self, nums, target):
-        dic = {}
-        for i, num in enumerate(nums):
-            if target-num in dic:
-                return [dic[target-num],i]
-            dic[num]=i
-        return "Bummer"
-    
-ex_nums = [2, 7, 11, 15] 
-ex_target = 9
+class Solution(object):
+  def twoSum(self, nums, target):
+    for i1, a in enumerate(nums):
+      for i2, b in enumerate(nums):
+        if a == b:
+          continue
+        if a + b == target:
+          return [i1, i2]
+    return []
 
-print(Solution().twoSum(ex_nums,ex_target))
+  def twoSumB(self, nums, target):
+    values = {}
+    for i, num in enumerate(nums):
+      diff = target - num
+      if diff in values:
+        return [i, values[diff]]
+      values[num] = i
+    return []
+
+
+print(Solution().twoSumB([2, 7, 11, 15], 18))

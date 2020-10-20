@@ -1,0 +1,6 @@
+Given a number in string form, convert it to an integer.
+
+Example:
+
+input '-105'
+output -105

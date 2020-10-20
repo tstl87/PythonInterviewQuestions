@@ -1,0 +1,5 @@
+Given a list of strings, determine if one of the elements is a concatenation of the other elements in the list.
+
+Example
+Input = ['cat', 'cats', 'dog', 'catsdog']
+Output = ['catsdog']

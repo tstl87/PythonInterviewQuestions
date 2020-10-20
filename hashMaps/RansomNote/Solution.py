@@ -1,19 +1,23 @@
-class Solution:
-    def canConstruct(self, ransomNote, magazine):
-        mag_dict = {}
-        for char in magazine:
-            if(char in mag_dict.keys()):
-                mag_dict[char] += 1
-            else:
-                mag_dict[char] = 1
-        for char in ransomNote:
-            if(char in mag_dict.keys()):
-                mag_dict[char] -= 1
-                if mag_dict[char] < 0:
-                    return False
-            else:
-                return False
-        return True
+from collections import defaultdict
+
+class Solution(object):
+	def canSpell(self, magazine, note):
+		letters = defaultdict(int)
+		for c in magazine:
+			letters[c] += 1
+
+		for c in note:
+			if letters[c] <= 0:
+				return False
+			letters[c] -= 1
+
+		return True
+
+print(Solution().canSpell(['a', 'b', 'c', 'd', 'e', 'f'], 'bed'))
+# True
+
+print(Solution().canSpell(['a', 'b', 'c', 'd', 'e', 'f'], 'cat'))
+# False
 
 # Time Complexity:
 # If the magazine is a list of size m and the ransom is 
@@ -24,7 +28,7 @@ class Solution:
 # If the length of the magazine is of size m, then
 # the Space Complexity comes from our hashmap and thus
 # is O(m).
-    
+		
 # Space Complexity:
 print(Solution().canConstruct('aa', 'aab'))
 

@@ -1,0 +1,1 @@
+Given a string of numbers. Return all possible words from a list that can be spelled from those numbers. Assume that the numbers and letters are related the same way a phone would have them.

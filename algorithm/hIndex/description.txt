@@ -1,0 +1,1 @@
+The H-index is a method for scoring researchers by their papers. If we have a list of the total number of citations that a researcher's papers has received, then their H-index is defined as the H papers that have received at least H citations.

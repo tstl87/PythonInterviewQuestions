@@ -1,0 +1,6 @@
+given a list of positive integers. Return a list containing ranges
+
+Example
+
+Input:  [0, 1, 2, 5, 7, 8, 9, 9, 10, 11, 15]))
+Output: ['0-2', '5-5', '7-11', '15-15']

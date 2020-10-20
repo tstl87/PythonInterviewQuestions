@@ -1,0 +1,1 @@
+Given a list containing strings, return a list containing tuples of words that are anagrams of eachother.

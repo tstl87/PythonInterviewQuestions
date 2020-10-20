@@ -1,0 +1,12 @@
+Given a tree, print the output of each level in alternating order from right to left and then left to right on the next level:
+
+Example:
+input:
+      1
+    /   \
+   2     3
+  / \   / \
+ 4   5 6   7
+
+output:
+   1237654

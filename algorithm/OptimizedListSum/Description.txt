@@ -1,0 +1,5 @@
+Given a list of numbers and some indices for the list, return the sum from the beginning to the end of the subarray.
+
+Example
+input: [1,2,3,4,5,6,7] , (2,5)
+output: 12

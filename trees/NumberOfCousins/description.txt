@@ -1,0 +1,11 @@
+Given a node of a tree, find the cousins of that node.
+
+Example:
+#     1
+#    / \
+#   2   3
+#  / \    \
+# 4   6    5
+
+input = 5
+output = [4, 6]

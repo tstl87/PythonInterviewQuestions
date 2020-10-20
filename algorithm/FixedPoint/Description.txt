@@ -1,0 +1,5 @@
+Given a sorted list. Return the unique (by construction) "Fixed point" in the list. A "Fixed Point" is defined as a list element whose value is equal to it's index.
+
+Example
+input = [-5, 1, 3, 4]
+output = 1

@@ -1,0 +1,1 @@
+Given two trees a and b with the same structure. search through tree a for a specific node and return the value from the node in the same corresponding position in node b.

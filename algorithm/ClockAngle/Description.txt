@@ -1,0 +1,1 @@
+Calculate the angle made by the hour and minute hand of a clock. Note that an hour hand moves 60 ticks between each hour for a total of 12*60 ticks for a 12 hour interval.

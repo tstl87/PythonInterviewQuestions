@@ -1,0 +1,14 @@
+Given a list of integers (representing jobs to run) and an integer representing the length of cooldowns. Compute the time it would take to complete all of the jobs. Assume that no two jobs can be started simultaneously and that if a single job is repeated multiple times then you have to wait until the first job is completed before starting the same job again.
+
+Example
+Input [1,1,2,1], 2
+Output 7
+
+Reasoning:
+The jobs with the cooldowns would appear as follows
+
+1,2,3,4,5,6,7,8,9
+1,_,_,1,_,_,1,_,_
+        2,_,_
+
+Note that we don't count the cooldown for the last job at time 7

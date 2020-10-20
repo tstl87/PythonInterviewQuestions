@@ -1,0 +1,5 @@
+Given a linux path string, simplify it
+
+Example:
+input = '/users/tech/docs/.././desk/../'
+ouput = '/usera/tech/'

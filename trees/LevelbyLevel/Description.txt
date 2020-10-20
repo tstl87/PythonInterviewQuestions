@@ -1,0 +1,14 @@
+Given a tree. Print nodes of the tree level by level
+
+Example
+Input
+#    a
+#   / \
+#  b   c
+#     /|\
+#    d e f
+
+Output
+a
+bc
+def

@@ -1,0 +1,6 @@
+Given a number n, return the length of the longest sequence of ones in its bit representation.
+
+Example
+
+input = 242 = 111100010
+output =  4

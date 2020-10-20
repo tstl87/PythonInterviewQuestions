@@ -1,0 +1,14 @@
+A binary tree has univaled sub trees if every child node is equal to its parent node.
+
+A node with no children is automatically a univaled sub tree. Please count the number of subtrees in
+each tree 
+
+Example 1:
+#    0
+#   / \
+#  1   0
+#     / \
+#    1   0
+#   / \
+#  1   1
+Answer 5

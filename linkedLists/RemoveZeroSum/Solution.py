@@ -1,29 +1,38 @@
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+class Node:
+	def __init__(self, val=0, next=None):
+		self.val = val
+		self.next = next
+	def __repr__(self):
+		n = self
+		ret = ''
+		while n:
+			ret += str(n.val) + ' '
+			n = n.next
+		return ret
+
 class Solution:
-    def removeZeroSumSublists(self, head: ListNode) -> ListNode:
-        curr = dummy = ListNode(0)
-        dummy.next = head
-        prefix = 0
-        from collections import OrderedDict
-        seen = OrderedDict()
-        while curr:
-            prefix += curr.val
-            if prefix not in seen:
-                seen[prefix] = curr
-            else:
-                node = seen[prefix]
-                node.next = curr.next
-                while list(seen.keys())[-1] != prefix:
-                    seen.popitem()
-            curr = curr.next
-        return dummy.next
-    
-
-ex1 = ListNode(1); ex1.next = ListNode(2); ex1.next = ListNode(-3);
-ex1.next = ListNode(3); ex1.next = ListNode(1)
-#[1,2,-3,3,1]
-
-print( Solution().removeZeroSumSublists(ex1))
+	def removeZeroSumSublists1(self, head: Node) -> Node:
+		hashMap, runningSum = {}, 0
+		cur = head 
+		while cur:
+			runningSum += cur.val
+			if runningSum == 0:
+				head = cur.next
+			else:
+				if runningSum not in hashMap:
+					hashMap[runningSum] = cur 
+				else:
+					hashMap[runningSum].next = cur.next
+			cur = cur.next
+		return head
+	
+# 3, 1, 2, -1, -2, 4, 1
+n = Node(3)
+n.next = Node(1)
+n.next.next = Node(2)
+n.next.next.next = Node(-1)
+n.next.next.next.next = Node(-2)
+n.next.next.next.next.next = Node(4)
+n.next.next.next.next.next.next = Node(1)
+print(Solution().removeZeroSumSublists(n))
+# 3, 4, 1
