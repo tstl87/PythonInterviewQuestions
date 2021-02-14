@@ -1,22 +1,29 @@
 from collections import defaultdict
 
-class Solution(object):
-	def canSpell(self, magazine, note):
-		letters = defaultdict(int)
-		for c in magazine:
-			letters[c] += 1
+class Solution():
+  def canSpell(self, magazine, note):
+    letters = defaultdict(int)
 
-		for c in note:
-			if letters[c] <= 0:
-				return False
-			letters[c] -= 1
+    # n = len(magazine)
+    # Time complexity O(n)
+    for letter in magazine:
+      letters[letter] += 1
 
-		return True
+    # m = len(note)
+    # Time complexity O(m)
+    for letter in note:
+      if( letter not in letters or letters[letter] == 0):
+        return False
+      else:
+        letters[letter] -= 1
 
-print(Solution().canSpell(['a', 'b', 'c', 'd', 'e', 'f'], 'bed'))
+    return True
+
+
+print( Solution().canSpell(['a', 'b', 'c', 'd', 'e', 'f'], 'bed'))
 # True
 
-print(Solution().canSpell(['a', 'b', 'c', 'd', 'e', 'f'], 'cat'))
+print( Solution().canSpell(['a', 'b', 'c', 'd', 'e', 'f'], 'cat'))
 # False
 
 # Time Complexity:
@@ -28,7 +35,4 @@ print(Solution().canSpell(['a', 'b', 'c', 'd', 'e', 'f'], 'cat'))
 # If the length of the magazine is of size m, then
 # the Space Complexity comes from our hashmap and thus
 # is O(m).
-		
-# Space Complexity:
-print(Solution().canConstruct('aa', 'aab'))
 
