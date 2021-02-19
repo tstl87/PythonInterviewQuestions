@@ -1,37 +1,41 @@
 class Solution:
-    def pushDominoes(self, dominoes):
-        N = len(dominoes)
-        force = [0] * N
-        
-        # Populate Rs
-        f = 0
-        for i in range(N):
-            if dominoes[i] == 'R':
-                f = N
-            elif dominoes[i] == 'L':
-                f = 0
-            else:
-                f = max(f-1,0)
-            force[i] += f
-        
-        # Populated Ls
-        for i in range(N-1, -1, -1):
-            if dominoes[i] == 'L':
-                f = N
-            elif dominoes[i] == 'R':
-                f = 0
-            else:
-                f = max(f-1, 0)
-            force[i] -= f
-            
-        for i in range(N):
-            if force[i] == 0:
-                force[i] = '.'
-            elif force[i] > 0:
-                force[i] = 'R'
-            elif force[i] < 0:
-                force[i] = 'L'
-        return "".join(force)
+  def pushDominoes(self, dominoes):
+    maxForce = len(dominoes)
+    forces = [0]*maxForce
+
+    # Apply right dominoe force
+    force = 0
+    for i, d in enumerate(dominoes):
+      if d == 'R':
+          force = maxForce 
+      elif d == 'L':
+          force = 0
+      else:
+        force = max(0, force - 1)
+      forces[i] += force
+
+    # Apply left dominoe force
+    force = 0
+    for i in range( maxForce-1, -1, -1):
+      if dominoes[i] == 'R':
+        force = 0 
+      elif dominoes[i] == 'L':
+        force = maxForce
+      else:
+        force = max(0, force -1)
+      forces[i] -= force
+
     
-    
-print(Solution().pushDominoes(".L.R...LR..L.."))
+    ret = ''
+    for i in range(maxForce):
+      if forces[i] > 0:
+        ret += 'R'
+      elif forces[i] < 0:
+        ret += 'L'
+      else:
+        ret += '.'
+
+    return ret
+
+print(Solution().pushDominoes('.R...L..R.'))
+# .RR.LL..RR

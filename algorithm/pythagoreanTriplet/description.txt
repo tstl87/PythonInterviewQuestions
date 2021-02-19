@@ -1,0 +1,10 @@
+Given a list of integers containing at least three integers. Write a program that determines if 
+a pythagorean triplet is present in the list.
+
+Example:
+Solution().pythagTriplet([3,4,5])
+# returns True since 3^2 + 4^2 = 5^2
+
+Example:
+Solution().pythagTriplet([3,4,6])
+# returns False since no pythagorean triplet is present.

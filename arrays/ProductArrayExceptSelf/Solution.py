@@ -1,18 +1,22 @@
 class Solution:
-	def productExceptSelf(self, nums):
-		right = [1] * len(nums)
-		prod = 1
-		for i in range(len(nums) - 2, -1, -1):
-			prod *= nums[i+1]
-			right[i] = prod
+  def productExceptSelf(self, nums):
 
-		prod = 1
-		for i in range(1, len(nums)):
-			prod *= nums[i-1]
-			right[i] *= prod
+    # initialize results array as a starting product of ones
+    res = [1]*len(nums)
 
-		return right
+    # forward pass computing products for the next entry 
+    prod = 1
+    for i in range(0,len(nums)-1):
+      prod *= nums[i]
+      res[i+1] *= prod
 
+    # backward pass computing products for the next entry
+    prod = 1
+    for i in range(-1, -len(nums), -1):
+      prod *= nums[i]
+      res[i-1] *= prod
+
+    return res
 
 print(Solution().productExceptSelf([1, 2, 3, 4]))
 # [24, 12, 8, 6]

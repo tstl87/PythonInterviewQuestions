@@ -1,43 +1,40 @@
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self,x):
-        self.val = x
-        self.next = None
-        
-    def __str__(self):
-        result = str(self.val)
-        if self.next:
-            result += str(self.next)
-        return result
-    
-class Solution:
-    def reverseList(self,head):
-        prev = None
-        curr = head
-        while(curr != None):
-            temp = curr.next
-            curr.next = prev
-            prev = curr
-            curr = temp
-        return prev
-    
-    def reverseList2(self,head):
-        if( head is None or head.next is None):
-            return head
-        
-        p = self.reverseList2(head.next)
-        head.next.next = head
-        head.next = None
-        return p
-    
-node = ListNode(1)
-node.next = ListNode(2)
-node.next.next = ListNode(3)
-node.next.next.next = ListNode(4)
-node.next.next.next.next = ListNode(5)
+# Defining a node
+class Node:
+  def __init__(self, value, next = None):
+    self.value = value
+    self.next = next 
 
-#print(Solution().reverseList(node))
-print(Solution().reverseList2(node))
+  def __repr__(self):
+
+    tmp = str(self.value)
+    if self.next:
+      tmp += ' ' + str(self.next)
+
+    return tmp
+
+# 1 ->  2   ->  3    -> 4        -> 5 ->
+#               tmp  -> curr.next
+#      prev <-  curr 
+#      
+#
+class Solution:
+  def reverse(self, node):
+
+    curr = node
+    prev = None
+    while curr:
+      tmp = curr.next
+      curr.next = prev
+      prev = curr
+      curr = tmp
+
+    return prev
+
+
+node = Node(1, Node(2, Node(3, Node(4, Node(5)))))
+
+print(Solution().reverse(node))
+    
 
 # Recursive Solution:
 # Time Complexity:

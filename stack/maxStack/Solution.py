@@ -1,33 +1,36 @@
-class MaxStack(object):
+class MaxStack:
   def __init__(self):
     self.stack = []
     self.maxes = []
 
-  def push(self, val):
-    self.stack.append(val)
-    if self.maxes and self.maxes[-1] > val:
-      self.maxes.append(self.maxes[-1])
+  def push(self, value):
+
+    self.stack.append(value)
+    if not self.maxes or value > self.maxes[-1]:
+      self.maxes.append(value)
     else:
-      self.maxes.append(val)
+      self.maxes.append(self.maxes[-1]) 
 
   def pop(self):
-    if self.maxes:
-      self.maxes.pop()
+    self.maxes.pop()
     return self.stack.pop()
 
   def max(self):
     return self.maxes[-1]
 
-s = MaxStack()
-s.push(1)
-s.push(2)
-s.push(3)
-s.push(2)
-print('max', s.max())
-print(s.pop())
-print('max', s.max())
-print(s.pop())
-print('max', s.max())
-print(s.pop())
-print('max', s.max())
-print(s.pop())
+stack = MaxStack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+stack.push(2)
+
+print( 'max ', stack.max())
+print( stack.pop())
+print( 'max ', stack.max())
+print( stack.pop())
+print( 'max ', stack.max())
+print( stack.pop())
+print( 'max ', stack.max())
+print( stack.pop())
+
+
