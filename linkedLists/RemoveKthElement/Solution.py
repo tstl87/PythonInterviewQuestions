@@ -1,35 +1,41 @@
-class Node:
-    def __init__(self, val, next):
-        self.val = val
-        self.next = next
+class Node():
+  def __init__(self, val, next = None):
+    self.val = val
+    self.next = next
+  
+  def __str__(self):
 
-    def __str__(self):
-        n = self
-        answer = ''
-        while n:
-            answer += str(n.val)
-            n = n.next
-        return answer
+    n = self
+    answer = ''
+    while n:
+      answer += str(n.val) + ' '
+      n = n.next
 
-def remove_kth_from_linked_list(node, k):
-    slow, fast = node, node
-    for i in range(k):
-        fast = fast.next
-    if not fast:
-        return node.next
+    return answer
 
+class Solution():
+  def remove_kth_from_linked_list(self, ll, k):
+
+    slow, fast = ll, ll
+    for _ in range(k):
+      fast = fast.next
+
+    head = slow
     prev = None
     while fast:
-        prev = slow
-        fast = fast.next
-        slow = slow.next
+      prev = slow
+      slow = slow.next
+      fast = fast.next
     prev.next = slow.next
-    return node
+
+    return head
+
+    
 
 head = Node(1, Node(2, Node(3, Node(4, Node(5, None)))))
-print(head)
+#print(head)
 # 12345
 
-head = remove_kth_from_linked_list(head, 2)
+head = Solution().remove_kth_from_linked_list(head, 2)
 print(head)
-# 1234
+# 1235

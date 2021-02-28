@@ -1,28 +1,31 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Apr 24 12:34:30 2020
 
-@author: skyst
-"""
+class Solution():
+  def isValid(self, string):
+    # stack to store and pop parenthesis
+    stack = []
+    leftPar = { '(':')', '[':']', '{':'}'}
+    rightPar = { ')':'(', ']':'[', '}':'{'}
 
-class Solution:
-    def isValid(self, s):
-        stack = []
-        pmap = {'(':')', '[':']','{':'}'}
-        bplist = ['(','[','{']
-        for c in s:
-            if c in bplist:
-                stack.append(c)
-            else:
-                if len(stack) == 0:
-                    return False
-                if pmap[stack[-1]] != c:
-                    return False
-                else:
-                    stack.pop()
-        if len(stack) > 0:
-            return False
+    for char in string:
+      if char in leftPar:
+          stack.append(char)
+      elif char in rightPar:
+        if len(stack) == 0 or stack[-1] != rightPar[char]:
+          return False
         else:
-            return True
+          stack.pop()
+      else:
+        return False
+
+    return len(stack) == 0
+
+
             
 print( Solution().isValid('[](){}'))
+# True
+print( Solution().isValid("(]"))
+# False
+print( Solution().isValid("([)]"))
+# False
+print( Solution().isValid("{[]}"))
+# True

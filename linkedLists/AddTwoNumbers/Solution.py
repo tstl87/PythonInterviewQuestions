@@ -1,72 +1,55 @@
 class Node():
-  def __init__(self, val):
-      self.val = val 
-      self.next = None
+  def __init__(self, val, next = None):
+    self.val = val 
+    self.next = next 
+  
+  def __str__(self):
 
+    n = self
+    answer = ''
+    while n:
+      answer += str(n.val) + ' '
+      n = n.next
 
-class Solution:
-  def addTwoNumbers(self, l1, l2 ):
-    #return self.addTwoNumbersRecursive( l1, l2, 0)
-    return self.addTwoNumbersIterative( l1, l2)
+    return answer
 
-  def addTwoNumbersRecursive(self, l1, l2, c):
+class Solution():
+  def add(self, l1, l2):
 
-    val = l1.val + l2.val + c
-    c = val // 10
-    ret = Node(val % 10)
-
-    if l1.next != None or l2.next != None:
-      if not l1.next:
-        l1.next = Node(0)
-      if not l2.next:
-        l2.next = Node(0)
-      ret.next = self.addTwoNumbersRecursive(l1.next, l2.next, c)
-    elif c:
-      ret.next = Node(c)
-    return ret
-
-  def addTwoNumbersIterative(self, l1, l2):
-    a = l1
-    b = l2
+    dummy = Node(0)
+    result = dummy
     c = 0
-    ret = current = None
+    while( l1 or l2):
 
-    while a or b:
-      val = a.val + b.val + c
-      c = val // 10
-      if not current:
-        ret = current = Node(val % 10)
-      else:
-        current.next = Node(val % 10)
-        current = current.next
+      # store current digit
+      a, b = l1.val, l2.val
+      dummy.val += (a + b + c) % 10
+      print('a = ', a, 'b = ', b, 'a + b % 10 =', (a+b+c) % 10)
+      c = (a + b + c) // 10
 
-      if a.next or b.next:
-        if not a.next:
-          a.next = Node(0)
-        if not b.next:
-          b.next = Node(0)
-      elif c:
-        current.next = Node(c)
-      a = a.next
-      b = b.next
-    return ret
+      if( l1.next and not l2.next ):
+        l2.next = Node(0)
 
+      if( not l1.next and l2.next ):
+        l1.next = Node(0)
 
+      l1, l2 = l1.next, l2.next
 
-l1 = Node(2)
-l1.next = Node(4)
-l1.next.next = Node(3)
+      if( l1 or l2):
+        dummy.next = Node(0)
+        dummy = dummy.next
 
-l2 = Node(5)
-l2.next = Node(6) 
-l2.next.next = Node(4)
+      if( not ( l1 or l2 ) and c == 1):
+        dummy.next = Node(c)
 
+    return result
 
-answer = Solution().addTwoNumbers(l1, l2)
-while answer:
-  print(answer.val, end=' ')
-  answer = answer.next
+ll1 = Node(2, Node(4, Node(5)))
+ll2 = Node(5, Node(6, Node(4)))
 
+print(ll1)
+print(ll2)
+print( Solution().add(ll1,ll2), 'should be 7 0 8')
 
 # Iterative Solution
 # Time Complexity

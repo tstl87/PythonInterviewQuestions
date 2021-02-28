@@ -1,0 +1,8 @@
+You are given a single linked list. Your objective
+is to create a function which will remove the
+kth from the last element from the single linked list.
+
+Example:
+input = 1 -> 2 -> 3 -> 4 -> 5
+remove(sll, 2)
+output = 1 -> 2 -> 3 -> 5
