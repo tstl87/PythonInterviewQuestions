@@ -1,21 +1,24 @@
 class Solution(object):
-  def twoSum(self, nums, target):
-    for i1, a in enumerate(nums):
-      for i2, b in enumerate(nums):
-        if a == b:
-          continue
+  def twoSumA(self, nums, target):
+
+    for i in range(len(nums)):
+      for j in range(i+1, len(nums)):
+        a, b = nums[i], nums[j]
         if a + b == target:
-          return [i1, i2]
+          return [i,j]
+
     return []
 
   def twoSumB(self, nums, target):
-    values = {}
-    for i, num in enumerate(nums):
-      diff = target - num
-      if diff in values:
-        return [i, values[diff]]
-      values[num] = i
+
+    diffs = {}
+    for i in range( len(nums) ):
+      diff = target - nums[i]
+      if diff in diffs:
+        return [diffs[diff], i]
+      else:
+        diffs[ nums[i] ] = i
+
     return []
-
-
+    
 print(Solution().twoSumB([2, 7, 11, 15], 18))
